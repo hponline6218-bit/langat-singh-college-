@@ -1,0 +1,248 @@
+```html
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Admin Login | Langat Singh College</title>
+
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: Arial, Helvetica, sans-serif;
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background: linear-gradient(135deg, #420000, #800000, #a51e1e);
+        }
+
+        .login-container {
+            width: 100%;
+            max-width: 420px;
+            padding: 20px;
+        }
+
+        .login-box {
+            background: #ffffff;
+            padding: 40px 35px;
+            border-radius: 16px;
+            box-shadow: 0 15px 40px rgba(0, 0, 0, 0.35);
+            text-align: center;
+        }
+
+        .college-logo {
+            width: 75px;
+            height: 75px;
+            margin: 0 auto 15px;
+            border-radius: 50%;
+            background: #800000;
+            color: #f3ca5c;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 24px;
+            font-weight: bold;
+            border: 4px solid #f3ca5c;
+        }
+
+        h1 {
+            color: #800000;
+            font-size: 25px;
+            margin-bottom: 5px;
+        }
+
+        .subtitle {
+            color: #666;
+            font-size: 14px;
+            margin-bottom: 30px;
+        }
+
+        .input-group {
+            text-align: left;
+            margin-bottom: 20px;
+        }
+
+        .input-group label {
+            display: block;
+            margin-bottom: 7px;
+            color: #333;
+            font-weight: bold;
+            font-size: 14px;
+        }
+
+        .input-group input {
+            width: 100%;
+            padding: 13px 14px;
+            border: 1px solid #ccc;
+            border-radius: 8px;
+            font-size: 15px;
+            outline: none;
+            transition: 0.3s;
+        }
+
+        .input-group input:focus {
+            border-color: #800000;
+            box-shadow: 0 0 0 3px rgba(128, 0, 0, 0.10);
+        }
+
+        .login-btn {
+            width: 100%;
+            padding: 14px;
+            border: none;
+            border-radius: 8px;
+            background: #800000;
+            color: white;
+            font-size: 16px;
+            font-weight: bold;
+            cursor: pointer;
+            transition: 0.3s;
+        }
+
+        .login-btn:hover {
+            background: #a51e1e;
+            transform: translateY(-1px);
+        }
+
+        #message {
+            margin-top: 15px;
+            font-size: 14px;
+            font-weight: bold;
+        }
+
+        .back-home {
+            display: inline-block;
+            margin-top: 22px;
+            color: #800000;
+            text-decoration: none;
+            font-size: 14px;
+            font-weight: bold;
+        }
+
+        .back-home:hover {
+            text-decoration: underline;
+        }
+
+        .copyright {
+            margin-top: 25px;
+            color: #777;
+            font-size: 12px;
+        }
+
+        @media (max-width: 480px) {
+            .login-box {
+                padding: 30px 22px;
+            }
+
+            h1 {
+                font-size: 22px;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+    <div class="login-container">
+
+        <div class="login-box">
+
+            <div class="college-logo">
+                LSC
+            </div>
+
+            <h1>Admin Login</h1>
+
+            <p class="subtitle">
+                Langat Singh College, Muzaffarpur
+            </p>
+
+            <form onsubmit="adminLogin(event)">
+
+                <div class="input-group">
+                    <label for="username">Username</label>
+                    <input
+                        type="text"
+                        id="username"
+                        placeholder="Enter admin username"
+                        required
+                    >
+                </div>
+
+                <div class="input-group">
+                    <label for="password">Password</label>
+                    <input
+                        type="password"
+                        id="password"
+                        placeholder="Enter admin password"
+                        required
+                    >
+                </div>
+
+                <button type="submit" class="login-btn">
+                    Login
+                </button>
+
+                <div id="message"></div>
+
+            </form>
+
+            <a href="index.html" class="back-home">
+                ← Back to Website
+            </a>
+
+            <div class="copyright">
+                © Langat Singh College, Muzaffarpur
+            </div>
+
+        </div>
+
+    </div>
+
+
+    <script>
+
+        function adminLogin(event) {
+
+            event.preventDefault();
+
+            const username = document.getElementById("username").value;
+            const password = document.getElementById("password").value;
+            const message = document.getElementById("message");
+
+            /*
+             * TEMPORARY DEMO LOGIN
+             * बिना MySQL के
+             */
+
+            const adminUsername = "admin";
+            const adminPassword = "LSC@2026";
+
+            if (username === adminUsername && password === adminPassword) {
+
+                message.style.color = "green";
+                message.innerHTML = "Login successful...";
+
+                setTimeout(function () {
+                    window.location.href = "admin-dashboard.html";
+                }, 800);
+
+            } else {
+
+                message.style.color = "red";
+                message.innerHTML = "Invalid username or password.";
+
+            }
+        }
+
+    </script>
+
+</body>
+</html>
+```
